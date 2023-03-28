@@ -6,6 +6,7 @@ import com.lesson.bestoftheyear.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -77,5 +78,25 @@ public class HomeController {
 
         model.addAttribute("songList", songs);
         return "songs";
+    }
+
+    @GetMapping("/movies/{id}")
+    public String movieShow(@PathVariable(name = "id") int movie_id, Model model) {
+        for (Movie movie : getBestMovies()) {
+            if (movie.getId() == movie_id) {
+                model.addAttribute("movie", movie);
+            }
+        }
+        return "show-movie";
+    }
+
+    @GetMapping("/songs/{id}")
+    public String songShow(@PathVariable(name = "id") int song_id, Model model) {
+        for (Song song : getBestSongs()) {
+            if (song.getId() == song_id) {
+                model.addAttribute("song", song);
+            }
+        }
+        return "show-song";
     }
 }

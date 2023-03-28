@@ -9,12 +9,15 @@
 </head>
 <body>
 <h1>Movies</h1>
-<!-- Modificare anche le rispettive view per gestire la lista come unordered list.
-Ogni elemento mostrato nella lista (film o canzone) deve essere un
-link che punta alla rispettiva pagina di dettaglio, in cui mostrare tutti i dati dell’oggetto e non solo il titolo.-->
+
+<!--deve essere un link che punta alla rispettiva pagina di dettaglio,
+in cui mostrare tutti i dati dell’oggetto e non solo il titolo.-->
 <div class="container">
     <ul>
-        <li th:each="movie : ${movieList}" th:text="${movie.title}"></li>
+        <li th:each="movie : ${movieList}">
+            <a th:href="@{/movies/{movie_id}(movie_id = ${movie.id})}" th:text="${movie.title}"></a>
+        </li>
+
     </ul>
 </div>
 </body>

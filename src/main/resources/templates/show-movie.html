@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Songs</h1>
-<ul>
-    <li th:each="song : ${songList}">
-        <a th:href="@{/songs/{song_id}(song_id = ${song.id})}" th:text="${song.title}"></a>
-    </li>
-</ul>
+<h1>Movie detail</h1>
+
+<div class="container">
+    <h1 th:text="${movie.title}"></h1>
+    <h3 th:text="${movie.id}"></h3>
+</div>
 </body>
 </html>
