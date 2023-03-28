@@ -1,24 +1,22 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+
+    <div th:replace="~{fragments :: resources}"></div>
     <title>Document</title>
 </head>
 <body>
+<header th:insert="fragments :: navbar"></header>
+
 <h1>Movies</h1>
 
 <!--deve essere un link che punta alla rispettiva pagina di dettaglio,
 in cui mostrare tutti i dati dell’oggetto e non solo il titolo.-->
-<div class="container">
-    <ul>
-        <li th:each="movie : ${movieList}">
-            <a th:href="@{/movies/{movie_id}(movie_id = ${movie.id})}" th:text="${movie.title}"></a>
-        </li>
+<ul>
+    <li th:each="movie : ${movieList}">
+        <a th:href="@{/movies/{movie_id}(movie_id = ${movie.id})}" th:text="${movie.title}"></a>
+    </li>
 
-    </ul>
-</div>
+</ul>
 </body>
 </html>
